@@ -34,14 +34,18 @@ const menu = [
 ];
 
 function Header() {
-  const [toggle, setToggle] = useState(true);
+  const [toggle, setToggle] = useState(false);
 
   return (
     <div className="flex justify-between items-center p-4 px-10 absolute w-full bg-gradient-to-b from-[#1e2126] to-transparent">
       <img src={logo} className="w-[65px]" />
       <ul className="hidden md:flex gap-8">
         {menu.map((item) => (
-          <li className="text-gray-400 text-[18px] font-medium cursor-pointer hover:bg-gray-700 hover:text-white px-3 pb-2 py-1 rounded-md transition-all duration-500 ease-in-out">
+          <li
+            className={`text-gray-400 text-[18px] font-medium cursor-pointer hover:bg-gray-700 hover:text-white px-3 pb-2 py-1 rounded-md transition-all duration-500 ease-in-out ${
+              item.id === 1 ? "bg-gray-700" : null
+            }`}
+          >
             {item.name}
           </li>
         ))}
